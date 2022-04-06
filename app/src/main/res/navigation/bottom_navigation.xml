@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/bottom_home">
+
+    <fragment
+        android:id="@+id/bottom_home"
+        android:name="com.hekai.androidproject.fragments.HomeFragment"
+        android:label="bottom_home_fragment"
+        tools:layout="@layout/bottom_home_fragment" />
+    <fragment
+        android:id="@+id/bottom_message"
+        android:name="com.hekai.androidproject.fragments.MessageFragment"
+        android:label="bottom_message_fragment"
+        tools:layout="@layout/bottom_message_fragment" />
+    <fragment
+        android:id="@+id/bottom_mine"
+        android:name="com.hekai.androidproject.fragments.MineFragment"
+        android:label="bottom_mine_fragment"
+        tools:layout="@layout/bottom_mine_fragment" />
+    <fragment
+        android:id="@+id/bottom_notification"
+        android:name="com.hekai.androidproject.fragments.NotificationFragment"
+        android:label="bottom_notification_fragment"
+        tools:layout="@layout/bottom_notification_fragment" />
+    <fragment
+        android:id="@+id/bottom_search"
+        android:name="com.hekai.androidproject.fragments.SearchFragment"
+        android:label="bottom_search_fragment"
+        tools:layout="@layout/bottom_search_fragment" />
+</navigation>

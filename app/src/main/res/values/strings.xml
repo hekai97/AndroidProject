@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidProject</string>
+
+    <string name="server_url_base">http://10.20.92.222:8082/</string>
+
+    <string name="bottom_menu_home">首页</string>
+    <string name="bottom_menu_search">搜索</string>
+    <string name="bottom_menu_notification">通知</string>
+    <string name="bottom_menu_message">信息</string>
+    <string name="bottom_menu_mine">我的</string>
+</resources>
