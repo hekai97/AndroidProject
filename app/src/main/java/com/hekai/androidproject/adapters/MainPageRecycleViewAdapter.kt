@@ -1,40 +1,45 @@
 package com.hekai.androidproject.adapters
 
-import android.util.Log
-import android.view.LayoutInflater
+import android.content.Intent
 import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.hekai.androidproject.MainActivity
 import com.hekai.androidproject.databinding.RecyclerViewItemBinding
 import com.hekai.androidproject.entites.Posts
+import com.hekai.androidproject.otheractivity.ContentActivity
 
-class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>,inflater: LayoutInflater):
-    RecyclerView.Adapter<MainPageRecycleViewAdapter.MainpageViewHolder>() {
-    private val myInflater:LayoutInflater=inflater
+class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>,activity:MainActivity):
+    RecyclerView.Adapter<MainPageRecycleViewAdapter.MainPageViewHolder>() {
+//    private val myInflater:LayoutInflater=inflater
     private val datas:LiveData<List<Posts>> = data
-    class MainpageViewHolder(recyclerViewItemBinding: RecyclerViewItemBinding):RecyclerView.ViewHolder(recyclerViewItemBinding.root){
+    private val myActivity=activity
+    class MainPageViewHolder(recyclerViewItemBinding: RecyclerViewItemBinding,activity: MainActivity):RecyclerView.ViewHolder(recyclerViewItemBinding.root){
         private val binding=recyclerViewItemBinding
+        private val myActivityInViewHolder=activity
         fun bindDataToViewHolder(posts: Posts){
             if(!startWithURL(posts.PublishUserAvatar)){
                 posts.PublishUserAvatar="http://10.20.92.222:8082/"+posts.PublishUserAvatar
             }
-            Log.d("Hekai", "bindDataToViewHolder: ${posts.PublishUserAvatar}")
             binding.post=posts
-        }
-        fun startWithURL(avatar:String):Boolean{
-            if(avatar.substring(0,4).equals("http")){
-                return true
+            binding.postItem.setOnClickListener {
+                val intent=Intent(myActivityInViewHolder.applicationContext,ContentActivity::class.java)
+                intent.putExtra("UID",posts.PublishUserId)
+                intent.putExtra("obj",posts)
+                myActivityInViewHolder.startActivity(intent)
             }
-            return false
+        }
+        private fun startWithURL(avatar:String):Boolean{
+            return avatar.substring(0,4) == "http"
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainpageViewHolder {
-        val itemBinding:RecyclerViewItemBinding= RecyclerViewItemBinding.inflate(myInflater,parent,false)
-        return MainpageViewHolder(itemBinding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainPageViewHolder {
+        val itemBinding:RecyclerViewItemBinding= RecyclerViewItemBinding.inflate(myActivity.layoutInflater,parent,false)
+        return MainPageViewHolder(itemBinding,myActivity)
     }
 
-    override fun onBindViewHolder(holder: MainpageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MainPageViewHolder, position: Int) {
         datas.value?.let { holder.bindDataToViewHolder(it.get(position)) }
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="list_item_margin_to_top_and_bottom">2.5dp</dimen>
+    <dimen name="list_item_margin_to_top_and_bottom">7.5dp</dimen>
     <dimen name="title_text_size">24sp</dimen>
+    <dimen name="text_to_border">10dp</dimen>
 </resources>

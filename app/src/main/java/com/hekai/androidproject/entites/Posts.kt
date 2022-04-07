@@ -1,5 +1,7 @@
 package com.hekai.androidproject.entites
 import com.squareup.moshi.Json
+import java.io.Serializable
+
 data class Posts (
     @Json(name = "pid")var pid: Int?,
     @Json(name = "publishUserId")var PublishUserId: Int?,
@@ -13,4 +15,4 @@ data class Posts (
     @Json(name = "publishUpdateTime")var PublishUpdateTime: String,
     @Json(name = "publishReadCount")var PublishReadCount: Int?,
     @Json(name = "publishLikeNumber")var PublishLikeNumber: Int?
-)
+):Serializable
