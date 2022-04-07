@@ -24,7 +24,7 @@ class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>,activity:MainActivi
             binding.post=posts
             binding.postItem.setOnClickListener {
                 val intent=Intent(myActivityInViewHolder.applicationContext,ContentActivity::class.java)
-                intent.putExtra("UID",posts.PublishUserId)
+                intent.putExtra("UID",posts.pid)
                 intent.putExtra("obj",posts)
                 myActivityInViewHolder.startActivity(intent)
             }
