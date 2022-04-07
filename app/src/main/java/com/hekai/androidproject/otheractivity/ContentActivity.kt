@@ -3,12 +3,9 @@ package com.hekai.androidproject.otheractivity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.TextureView
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.hekai.androidproject.R
 import com.hekai.androidproject.adapters.bindImageFromUrl
 import com.hekai.androidproject.databinding.ActivityContentBinding
 import com.hekai.androidproject.entites.Posts

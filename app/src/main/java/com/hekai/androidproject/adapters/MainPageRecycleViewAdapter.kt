@@ -9,7 +9,7 @@ import com.hekai.androidproject.databinding.RecyclerViewItemBinding
 import com.hekai.androidproject.entites.Posts
 import com.hekai.androidproject.otheractivity.ContentActivity
 
-class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>,activity:MainActivity):
+class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>, activity:MainActivity):
     RecyclerView.Adapter<MainPageRecycleViewAdapter.MainPageViewHolder>() {
 //    private val myInflater:LayoutInflater=inflater
     private val datas:LiveData<List<Posts>> = data
