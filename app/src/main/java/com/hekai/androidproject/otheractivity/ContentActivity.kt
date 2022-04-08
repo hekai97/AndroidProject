@@ -38,7 +38,7 @@ class ContentActivity : AppCompatActivity() {
         }
     }
 
-    fun constructingContent(){
+    private fun constructingContent(){
         val array=viewModel.setContent()
         if(array.size==0){
             val textView: TextView = TextView(applicationContext)
@@ -47,7 +47,8 @@ class ContentActivity : AppCompatActivity() {
         }
         var mytext:String=""
         var index=0;
-        for(i in 0..(viewModel.data.value?.Content?.length ?: 0)){
+        var i=0
+        while(i<viewModel.data.value?.Content?.length ?: 0){
             if(index>array.size){
                 break
             }
@@ -63,8 +64,10 @@ class ContentActivity : AppCompatActivity() {
                 val imageView:ImageView=ImageView(applicationContext)
                 bindImageFromUrl(imageView,array[index].url)
                 binding.mainContentLayout.addView(imageView)
+                i=array[index].endIndex+1
                 index++;
             }
+            i++
         }
     }
 }
