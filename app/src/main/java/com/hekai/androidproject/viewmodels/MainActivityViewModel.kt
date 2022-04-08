@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class MainActivityViewModel(private val repository:LocalUserRepository):ViewModel() {
+    //当前登录的用户，如果为空则没有用户登录
     val currentUser:LiveData<LUser> = repository.currentUser.asLiveData()
     fun insert(lUser: LUser)=viewModelScope.launch {
         repository.insert(lUser)

@@ -2,6 +2,7 @@ package com.hekai.androidproject.network
 
 import com.hekai.androidproject.entites.Contents
 import com.hekai.androidproject.entites.Posts
+import com.hekai.androidproject.entites.Users
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -24,9 +25,14 @@ object NWPost{
     }
 }
 interface NetWorkPosts {
+    //User相关的方法
+    @GET("Users/validUser/{username}/{password}")
+    suspend fun vaLidUser(@Path("username")username:String,@Path("password")password:String):Users
+    //Post相关的方法
     @GET("Posts/getPostsList")
     suspend fun getPostsList():List<Posts>
 
+    //Content相关的方法
     @GET("Contents/getContentById/{uid}")
     suspend fun getContentById(@Path("uid")user:Int) : Contents
 }

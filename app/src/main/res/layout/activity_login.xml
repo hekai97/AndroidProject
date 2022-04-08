@@ -7,7 +7,7 @@
     tools:context=".otheractivity.LoginActivity">
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/Title_in_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/user_name_in_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -30,10 +30,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/Title_in_login" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password_in_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -45,10 +45,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/user_name_in_login" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/login_button_in_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/password_in_login"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_24"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <MultiAutoCompleteTextView
-            android:id="@+id/multiAutoCompleteTextView"
+            android:id="@+id/forget_password_in_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="忘记密码"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <MultiAutoCompleteTextView
-            android:id="@+id/multiAutoCompleteTextView2"
+            android:id="@+id/user_register_in_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户注册"
