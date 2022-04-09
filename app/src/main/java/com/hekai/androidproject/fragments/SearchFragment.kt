@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.hekai.androidproject.MainActivity
 import com.hekai.androidproject.R
 import com.hekai.androidproject.viewmodels.SearchViewModel
 
@@ -30,4 +31,9 @@ class SearchFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).setToolbarTitle("搜索")
+        (activity as MainActivity).getActivityBinding().includedAppBarLayout.fab.show()
+    }
 }

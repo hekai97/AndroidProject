@@ -37,12 +37,14 @@ class MineFragment : Fragment() {
         (activity as MainActivity).getActivityViewModel().currentUser.observe(viewLifecycleOwner) {
             if (it == null) {
                 binding.userPersonInformationLayout.isGone = true
+                binding.exitButton.isGone=true
                 binding.userNameInMain.setOnClickListener {
                     (activity as MainActivity).openLoginActivity()
                 }
             } else {
                 binding.userNameInMain.setOnClickListener(null)
                 binding.userPersonInformationLayout.isGone = false
+                binding.exitButton.isGone=false
                 bindImageFromUrl(
                     binding.userImageInMine,
                     myBaseURL()+(activity as MainActivity).getActivityViewModel().currentUser.value?.UserAvatar
@@ -51,6 +53,13 @@ class MineFragment : Fragment() {
                     (activity as MainActivity).getActivityViewModel().currentUser.value?.NickName
             }
         }
+        binding.exitButton.apply {
+            this.setOnClickListener {
+                (activity as MainActivity).getActivityViewModel().logOut()
+            }
+        }
+        (activity as MainActivity).setToolbarTitle("我的")
+        (activity as MainActivity).getActivityBinding().includedAppBarLayout.fab.hide()
     }
 
 }

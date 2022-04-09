@@ -13,6 +13,7 @@ import com.hekai.androidproject.databinding.ActivityMainBinding
 import com.hekai.androidproject.entites.Users
 import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.otheractivity.LoginActivity
+import com.hekai.androidproject.util.myBaseURL
 import com.hekai.androidproject.viewmodels.activityviewmodels.MainActivityViewModel
 import com.hekai.androidproject.viewmodels.activityviewmodels.MainActivityViewModelFactory
 
@@ -68,5 +69,8 @@ class MainActivity : AppCompatActivity() {
     fun openLoginActivity(){
         val intent=Intent(applicationContext,LoginActivity::class.java)
         getResult.launch(intent)
+    }
+    fun setToolbarTitle(s:String){
+        supportActionBar?.title=s
     }
 }

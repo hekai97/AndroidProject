@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hekai.androidproject.MainActivity
 import com.hekai.androidproject.databinding.RecyclerViewItemBinding
 import com.hekai.androidproject.entites.Posts
+import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.otheractivity.ContentActivity
 import com.hekai.androidproject.util.myBaseURL
 
@@ -21,10 +22,13 @@ class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>, activity:MainActiv
         fun bindDataToViewHolder(posts: Posts){
             if(!startWithURL(posts.PublishUserAvatar)){
                 posts.PublishUserAvatar= myBaseURL()+posts.PublishUserAvatar
+                //时间格式化
+                posts.PublishTime=posts.PublishTime.substring(0,10)+" "+posts.PublishTime.substring(11,19)
             }
             binding.post=posts
             binding.postItem.setOnClickListener {
                 val intent=Intent(myActivityInViewHolder.applicationContext,ContentActivity::class.java)
+                intent.putExtra("currentUser",myActivityInViewHolder.getActivityViewModel().currentUser.value)
                 intent.putExtra("UID",posts.pid)
                 intent.putExtra("obj",posts)
                 myActivityInViewHolder.startActivity(intent)

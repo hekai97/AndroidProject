@@ -45,6 +45,7 @@ class HomeFragment : Fragment() {
             binding.recyclerView.adapter?.notifyDataSetChanged()
             binding.swipeRefreshLayout.isRefreshing=false
         }
+        (activity as MainActivity).setToolbarTitle("主页")
+        (activity as MainActivity).getActivityBinding().includedAppBarLayout.fab.show()
     }
-
 }

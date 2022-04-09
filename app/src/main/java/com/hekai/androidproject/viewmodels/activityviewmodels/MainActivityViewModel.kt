@@ -15,6 +15,9 @@ class MainActivityViewModel(private val repository:LocalUserRepository):ViewMode
     fun deleteAll()=viewModelScope.launch {
         repository.deleteAll()
     }
+    fun logOut()=viewModelScope.launch {
+        repository.logOut()
+    }
 }
 class MainActivityViewModelFactory(private val repository: LocalUserRepository):ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

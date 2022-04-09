@@ -16,4 +16,7 @@ interface LocalUserDao {
 
     @Query("delete from login_status")
     suspend fun deleteAll()
+
+    @Query("update login_status set status=false where status=true")
+    suspend fun logOut()
 }

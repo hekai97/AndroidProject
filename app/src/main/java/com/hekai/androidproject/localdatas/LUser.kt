@@ -2,6 +2,7 @@ package com.hekai.androidproject.localdatas
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "login_status")
 data class LUser(
@@ -14,4 +15,4 @@ data class LUser(
     var PhoneNumber:String,
     var Email:String,
     var status:Boolean     //登录状态，为true代表该用户已经登录，否则为false
-)
+): Serializable

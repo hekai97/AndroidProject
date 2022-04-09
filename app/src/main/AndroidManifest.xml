@@ -14,6 +14,9 @@
         android:theme="@style/Theme.AndroidProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".otheractivity.PublishPostsActivity"
+            android:exported="false" />
+        <activity
             android:name=".otheractivity.RegisterActivity"
             android:exported="false" />
         <activity

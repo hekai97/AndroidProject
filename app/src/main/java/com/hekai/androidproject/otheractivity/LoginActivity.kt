@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.hekai.androidproject.R
 import com.hekai.androidproject.databinding.ActivityLoginBinding
+import com.hekai.androidproject.util.myBaseURL
 import com.hekai.androidproject.util.myhash
 import com.hekai.androidproject.viewmodels.activityviewmodels.LoginActivityViewModel
 import kotlinx.coroutines.delay
@@ -69,9 +70,13 @@ class LoginActivity : AppCompatActivity() {
             val registerIntent=Intent(applicationContext,RegisterActivity::class.java)
             startActivity(registerIntent)
         }
+        setSupportActionBar(binding.toolbar2)
+        binding.toolbar2.setNavigationOnClickListener {
+            this.finish()
+        }
 
     }
-    fun goBack(){
+    private fun goBack(){
         this.finish()
     }
 }

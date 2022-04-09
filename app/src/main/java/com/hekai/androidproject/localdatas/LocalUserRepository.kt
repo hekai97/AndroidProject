@@ -14,4 +14,8 @@ class LocalUserRepository(private val localUserDao: LocalUserDao) {
     suspend fun deleteAll(){
         localUserDao.deleteAll()
     }
+
+    suspend fun logOut(){
+        localUserDao.logOut()
+    }
 }

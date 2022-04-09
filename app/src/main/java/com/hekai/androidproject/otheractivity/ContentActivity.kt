@@ -6,9 +6,12 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import com.hekai.androidproject.R
 import com.hekai.androidproject.adapters.bindImageFromUrl
 import com.hekai.androidproject.databinding.ActivityContentBinding
 import com.hekai.androidproject.entites.Posts
+import com.hekai.androidproject.localdatas.LUser
+import com.hekai.androidproject.util.myBaseURL
 import com.hekai.androidproject.viewmodels.activityviewmodels.ContentActivityViewModel
 
 class ContentActivity : AppCompatActivity() {
@@ -29,6 +32,20 @@ class ContentActivity : AppCompatActivity() {
         }
         Log.d(TAG, "onCreate: ${intent.extras?.get("obj")}")
 
+        if(intent.extras?.get("currentUser")!=null){
+            viewModel.setCurrentUser(intent.extras?.get("currentUser") as LUser)
+            bindImageFromUrl(binding.currentUserImage, myBaseURL() +viewModel.currentUser.value?.UserAvatar)
+            Log.d(TAG, "设置图片: ${viewModel.currentUser.value?.UserAvatar}")
+        }else{
+            binding.currentUserImage.setImageResource(R.drawable.ic_baseline_check_24)
+        }
+//        viewModel.currentUser.observe(this){
+//            if(it.UserAvatar!=""){
+//                bindImageFromUrl(binding.currentUserImage,viewModel.currentUser.value?.UserAvatar)
+//            }else{
+//                binding.currentUserImage.setImageResource(R.drawable.ic_baseline_person_outline_24)
+//            }
+//        }
         viewModel.setPost(intent.extras?.get("obj") as Posts)
         var cid:Int= intent.extras?.get("UID") as Int
         viewModel.getContentById(cid)

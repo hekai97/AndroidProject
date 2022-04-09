@@ -26,6 +26,12 @@ class RegisterActivity : AppCompatActivity() {
         binding= ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel=ViewModelProvider(this)[RegisterActivityViewModel::class.java]
+
+        setSupportActionBar(binding.toolbar3)
+        binding.toolbar3.setNavigationOnClickListener {
+            this.finish()
+        }
+
         //给按钮加监听
         binding.registerButtonInRegister.apply {
             this.setOnClickListener {
@@ -94,11 +100,11 @@ class RegisterActivity : AppCompatActivity() {
                 null,
                 binding.userEmailInRegister.text.toString(),
                 binding.userNickNameInRegister.text.toString(),
-                null,
+                "image/photo/default_avatar.png",
                 myhash(binding.userPasswordInRegister.text.toString()),
                 0,
                 binding.userPhoneNumberInRegister.text.toString(),
-                null
+                binding.userEmailInRegister.text.toString(),
             )
             viewModel.insertUser(users)
             Snackbar.make(binding.root,"注册成功！",Snackbar.LENGTH_LONG).show()
