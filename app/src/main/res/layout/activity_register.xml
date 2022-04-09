@@ -18,53 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/text_to_border"
-        android:layout_marginTop="@dimen/component_top_and_bottom_spacing"
-        android:layout_marginEnd="@dimen/text_to_border"
-        android:ems="10"
-        android:hint="用户名"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/text_to_border"
-        android:layout_marginTop="@dimen/component_top_and_bottom_spacing"
-        android:layout_marginEnd="@dimen/text_to_border"
-        android:ems="10"
-        android:hint="密码"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/text_to_border"
-        android:layout_marginTop="@dimen/component_top_and_bottom_spacing"
-        android:layout_marginEnd="@dimen/text_to_border"
-        android:ems="10"
-        android:hint="重复密码"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/user_email_in_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/text_to_border"
@@ -74,12 +28,62 @@
         android:hint="电子邮件"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/user_nick_name_in_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_to_border"
+        android:layout_marginTop="@dimen/component_top_and_bottom_spacing"
+        android:layout_marginEnd="@dimen/text_to_border"
+        android:ems="10"
+        android:hint="昵称"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_email_in_register" />
+
+    <EditText
+        android:id="@+id/user_password_in_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_to_border"
+        android:layout_marginTop="@dimen/component_top_and_bottom_spacing"
+        android:layout_marginEnd="@dimen/text_to_border"
+        android:ems="10"
+        android:hint="密码"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_nick_name_in_register" />
+
+    <EditText
+        android:id="@+id/user_password_again_in_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_to_border"
+        android:layout_marginTop="@dimen/component_top_and_bottom_spacing"
+        android:layout_marginEnd="@dimen/text_to_border"
+        android:ems="10"
+        android:hint="重复密码"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_password_in_register" />
+
+    <EditText
+        android:id="@+id/user_phone_number_in_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/text_to_border"
@@ -89,17 +93,19 @@
         android:hint="手机号"
         android:inputType="phone"
         android:minHeight="48dp"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+        app:layout_constraintTop_toBottomOf="@+id/user_password_again_in_register" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/register_button_in_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:backgroundTint="#03A9F4"
         android:text="注册"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/user_phone_number_in_register" />
 </androidx.constraintlayout.widget.ConstraintLayout>

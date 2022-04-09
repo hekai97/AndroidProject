@@ -9,12 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.hekai.androidproject.adapters.bindImageFromUrl
 import com.hekai.androidproject.databinding.ActivityContentBinding
 import com.hekai.androidproject.entites.Posts
-import com.hekai.androidproject.viewmodels.ContentActivityViewModel
+import com.hekai.androidproject.viewmodels.activityviewmodels.ContentActivityViewModel
 
 class ContentActivity : AppCompatActivity() {
     private val TAG:String="Hekai"
     private lateinit var binding:ActivityContentBinding
-    private val viewModel:ContentActivityViewModel by lazy {
+    private val viewModel: ContentActivityViewModel by lazy {
         ViewModelProvider(this)[ContentActivityViewModel::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {

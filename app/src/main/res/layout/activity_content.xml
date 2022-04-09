@@ -6,7 +6,7 @@
     <data>
         <variable
             name="contentviewModel"
-            type="com.hekai.androidproject.viewmodels.ContentActivityViewModel" />
+            type="com.hekai.androidproject.viewmodels.activityviewmodels.ContentActivityViewModel" />
         <variable
             name="post"
             type="com.hekai.androidproject.entites.Posts" />

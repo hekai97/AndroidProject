@@ -1,5 +1,6 @@
 package com.hekai.androidproject.otheractivity
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,11 +10,11 @@ import com.google.android.material.snackbar.Snackbar
 import com.hekai.androidproject.R
 import com.hekai.androidproject.databinding.ActivityLoginBinding
 import com.hekai.androidproject.util.myhash
-import com.hekai.androidproject.viewmodels.LoginActivityViewModel
+import com.hekai.androidproject.viewmodels.activityviewmodels.LoginActivityViewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding:ActivityLoginBinding
-    private lateinit var viewModel:LoginActivityViewModel
+    private lateinit var viewModel: LoginActivityViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
@@ -29,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.loginButtonInLogin.setImageResource(R.drawable.ic_baseline_check_24)
                 viewModel.waitTime()
                 viewModel.isTimeLoading.observe(this){
+                    setResult(Activity.RESULT_OK,intent)
                     this.finish()
                 }
             }else if(viewModel.user.value?.Password==null){
@@ -36,6 +38,12 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 Snackbar.make(binding.root,"无此用户",Snackbar.LENGTH_LONG).show()
             }
+        }
+
+        //跳转到注册界面
+        binding.userRegisterInLogin.setOnClickListener {
+            val registerIntent=Intent(applicationContext,RegisterActivity::class.java)
+            startActivity(registerIntent)
         }
 
     }

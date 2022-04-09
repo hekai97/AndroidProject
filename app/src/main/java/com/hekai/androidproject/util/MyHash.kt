@@ -8,6 +8,3 @@ fun myhash(s:String): String {
     val digest = md.digest(bytes)
     return digest.fold("") { str, it -> str + "%02x".format(it) }
 }
-fun main(){
-    myhash("hek1111")
-}

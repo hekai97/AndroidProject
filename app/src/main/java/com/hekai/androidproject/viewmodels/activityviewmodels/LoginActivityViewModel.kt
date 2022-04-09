@@ -1,4 +1,4 @@
-package com.hekai.androidproject.viewmodels
+package com.hekai.androidproject.viewmodels.activityviewmodels
 
 import android.util.Log
 import android.util.TimeUtils

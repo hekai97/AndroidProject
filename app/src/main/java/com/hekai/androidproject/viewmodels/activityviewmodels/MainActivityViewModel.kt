@@ -1,4 +1,4 @@
-package com.hekai.androidproject.viewmodels
+package com.hekai.androidproject.viewmodels.activityviewmodels
 
 import androidx.lifecycle.*
 import com.hekai.androidproject.localdatas.LUser

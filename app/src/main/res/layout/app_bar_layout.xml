@@ -25,8 +25,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="#DC4545"></androidx.appcompat.widget.Toolbar>
+                android:layout_height="?attr/actionBarSize"></androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -71,6 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
+        android:background="@color/white"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_menu" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

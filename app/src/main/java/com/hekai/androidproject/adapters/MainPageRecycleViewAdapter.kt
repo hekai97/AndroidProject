@@ -8,6 +8,7 @@ import com.hekai.androidproject.MainActivity
 import com.hekai.androidproject.databinding.RecyclerViewItemBinding
 import com.hekai.androidproject.entites.Posts
 import com.hekai.androidproject.otheractivity.ContentActivity
+import com.hekai.androidproject.util.myBaseURL
 
 class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>, activity:MainActivity):
     RecyclerView.Adapter<MainPageRecycleViewAdapter.MainPageViewHolder>() {
@@ -19,7 +20,7 @@ class MainPageRecycleViewAdapter(data: LiveData<List<Posts>>, activity:MainActiv
         private val myActivityInViewHolder=activity
         fun bindDataToViewHolder(posts: Posts){
             if(!startWithURL(posts.PublishUserAvatar)){
-                posts.PublishUserAvatar="http://10.20.92.222:8082/"+posts.PublishUserAvatar
+                posts.PublishUserAvatar= myBaseURL()+posts.PublishUserAvatar
             }
             binding.post=posts
             binding.postItem.setOnClickListener {

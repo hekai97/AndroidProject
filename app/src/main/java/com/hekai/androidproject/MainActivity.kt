@@ -13,14 +13,14 @@ import com.hekai.androidproject.databinding.ActivityMainBinding
 import com.hekai.androidproject.entites.Users
 import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.otheractivity.LoginActivity
-import com.hekai.androidproject.viewmodels.MainActivityViewModel
-import com.hekai.androidproject.viewmodels.MainActivityViewModelFactory
+import com.hekai.androidproject.viewmodels.activityviewmodels.MainActivityViewModel
+import com.hekai.androidproject.viewmodels.activityviewmodels.MainActivityViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private val TAG="Hekai"
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private val viewModel:MainActivityViewModel by viewModels {
+    private val viewModel: MainActivityViewModel by viewModels {
         MainActivityViewModelFactory((application as MainApplicaton).repository)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.currentUser.observe(this){
             Log.d(TAG, "liveDataInDatabases: ${it}")
         }
-
     }
 
     val getResult=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
@@ -52,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                 remoteUser.Email!!,
                 true
             )
+            Log.d(TAG, "get: ${user}")
             viewModel.insert(user)
         }
         else{
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     fun getActivityBinding():ActivityMainBinding{
         return binding
     }
-    fun getActivityViewModel():MainActivityViewModel{
+    fun getActivityViewModel(): MainActivityViewModel {
         return viewModel
     }
     fun openLoginActivity(){
