@@ -18,7 +18,7 @@ class RegisterActivityViewModel:ViewModel() {
         return res
     }
     fun insertUser(users: Users):Deferred<Boolean>{
-        val res=viewModelScope.async {
+        val res=viewModelScope.async(Dispatchers.IO) {
             insertToRemoteDB(users)
         }
         return res

@@ -36,7 +36,7 @@ interface NetWorkPosts {
     @POST("Users/validUserByUserName/{username}")
     suspend fun isUserExist(@Path("username")username: String):Boolean
 
-    //Post相关的方法
+    //Posts相关的方法
     @GET("Posts/getPostsList")
     suspend fun getPostsList():List<Posts>
 

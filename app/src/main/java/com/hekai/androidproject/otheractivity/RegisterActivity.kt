@@ -84,6 +84,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerButtonListener(view: View){
+        //这块是用来检测这几个输入框是不是没有错误值了，如果没有错误值便可以插入数据库
         if(binding.userEmailInRegister.error==null
             &&binding.userNickNameInRegister.error==null
             &&binding.userPasswordInRegister.error==null
@@ -95,13 +96,13 @@ class RegisterActivity : AppCompatActivity() {
                 binding.userNickNameInRegister.text.toString(),
                 null,
                 myhash(binding.userPasswordInRegister.text.toString()),
-                null,
+                0,
                 binding.userPhoneNumberInRegister.text.toString(),
                 null
             )
             viewModel.insertUser(users)
-            runBlocking { delay(1000) }
             Snackbar.make(binding.root,"注册成功！",Snackbar.LENGTH_LONG).show()
+            runBlocking { delay(1000) }
             this.finish()
         }else{
             Snackbar.make(binding.root,"请检查输入的信息！",Snackbar.LENGTH_LONG).show()

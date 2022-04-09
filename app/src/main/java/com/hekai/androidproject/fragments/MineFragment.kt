@@ -41,6 +41,7 @@ class MineFragment : Fragment() {
                     (activity as MainActivity).openLoginActivity()
                 }
             } else {
+                binding.userNameInMain.setOnClickListener(null)
                 binding.userPersonInformationLayout.isGone = false
                 bindImageFromUrl(
                     binding.userImageInMine,
