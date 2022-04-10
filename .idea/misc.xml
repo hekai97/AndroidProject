@@ -14,6 +14,7 @@
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_drawer_setting.xml" value="0.20478837109876016" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_publish_posts.xml" value="0.2" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_register.xml" value="0.2047008547008547" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/app_bar_layout.xml" value="0.176" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/bottom_home_fragment.xml" value="0.22826086956521738" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/recycler_view_item.xml" value="0.4662349676225717" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/menu/bottom_menu.xml" value="0.24947916666666667" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/menu/drawer_menu.xml" value="0.20478837109876016" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/menu/publish_menu.xml" value="0.2047008547008547" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/menu/share_menu.xml" value="0.2047008547008547" />
       </map>
     </option>

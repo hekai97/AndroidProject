@@ -13,6 +13,7 @@ import com.hekai.androidproject.databinding.ActivityMainBinding
 import com.hekai.androidproject.entites.Users
 import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.otheractivity.LoginActivity
+import com.hekai.androidproject.otheractivity.PublishPostsActivity
 import com.hekai.androidproject.util.myBaseURL
 import com.hekai.androidproject.viewmodels.activityviewmodels.MainActivityViewModel
 import com.hekai.androidproject.viewmodels.activityviewmodels.MainActivityViewModelFactory
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         binding.includedAppBarLayout.bottomNavigationView.setupWithNavController(navController)
         viewModel.currentUser.observe(this){
             Log.d(TAG, "liveDataInDatabases: ${it}")
+        }
+        binding.includedAppBarLayout.fab.setOnClickListener {
+            startActivity(Intent(binding.root.context,PublishPostsActivity::class.java))
         }
     }
 

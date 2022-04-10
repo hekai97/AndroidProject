@@ -4,6 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".otheractivity.PublishPostsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_in_publish"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/publish_menu"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
+
+    <EditText
+        android:id="@+id/title_edittext_in_publish"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_to_border"
+        android:layout_marginTop="@dimen/text_to_border"
+        android:layout_marginEnd="@dimen/text_to_border"
+        android:ems="10"
+        android:hint="请输入标题"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_in_publish" />
+
+    <EditText
+        android:id="@+id/main_text_edittext_in_publish"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/text_to_border"
+        android:layout_marginTop="@dimen/text_to_border"
+        android:layout_marginEnd="@dimen/text_to_border"
+        android:background="@null"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="请输入正文"
+        android:inputType="textMultiLine|text"
+        android:nestedScrollingEnabled="true"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_edittext_in_publish" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/text_to_border"
+        android:layout_marginEnd="@dimen/text_to_border"
+        android:layout_marginBottom="@dimen/text_to_border"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/font_button_in_publish"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            app:srcCompat="@drawable/ic_outline_text_format_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/photo_button_in_publish"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            app:srcCompat="@drawable/ic_outline_insert_photo_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="391dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
