@@ -44,7 +44,7 @@ class ContentActivityViewModel: ViewModel() {
         //正则表达式的格式为：[图片]http://ip:port/image/xxx.xxx space
         //正则表达式2格式[图片]image/picture/xxx.xxx space
 //        val regex=Regex("\\[\\u56FE\\u7247\\](http):\\/\\/(([0-9]{1,3}\\.)+[0-9]{1,3}\\:[0-9]{2,5}\\/image\\/[a-z|A-Z|0-9]+\\.[a-z|A-Z]+\\b)")
-        val regex=Regex("\\[\\u56FE\\u7247\\]image\\/picture\\/[a-z|A-Z|0-9]+\\.[a-z|A-Z]+\\b")
+        val regex=Regex("\\[\\u56FE\\u7247\\]images\\/picture\\/[a-z|A-Z|0-9|_]+\\.[a-z|A-Z]+\\b")
 //        val string="[图片]http://10.20.92.222:8082/image/12.jpg"
 //        Log.d("Hekai", "setContent: ${string.matches(regex)}")
         var result=ArrayList<RangeAndValue>()

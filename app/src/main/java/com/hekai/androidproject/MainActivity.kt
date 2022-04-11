@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.Snackbar
 import com.hekai.androidproject.databinding.ActivityMainBinding
 import com.hekai.androidproject.entites.Users
 import com.hekai.androidproject.localdatas.LUser
@@ -33,11 +34,19 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment=supportFragmentManager.findFragmentById(R.id.bottom_fragment_container_view) as NavHostFragment
         navController=navHostFragment.navController
         binding.includedAppBarLayout.bottomNavigationView.setupWithNavController(navController)
+
         viewModel.currentUser.observe(this){
             Log.d(TAG, "liveDataInDatabases: ${it}")
         }
+        Log.d(TAG, "liveDataInDatabases: ${viewModel.currentUser}")
         binding.includedAppBarLayout.fab.setOnClickListener {
-            startActivity(Intent(binding.root.context,PublishPostsActivity::class.java))
+            if(viewModel.currentUser.value==null){
+                Snackbar.make(binding.root,"请先登录",Snackbar.LENGTH_LONG).show()
+            }else {
+                val currentUserIntent=Intent(binding.root.context,PublishPostsActivity::class.java)
+                currentUserIntent.putExtra("currentUser",viewModel.currentUser.value)
+                startActivity(currentUserIntent)
+            }
         }
     }
 

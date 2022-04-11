@@ -56,6 +56,7 @@ class MineFragment : Fragment() {
         binding.exitButton.apply {
             this.setOnClickListener {
                 (activity as MainActivity).getActivityViewModel().logOut()
+                (activity as MainActivity).recreate()
             }
         }
         (activity as MainActivity).setToolbarTitle("我的")

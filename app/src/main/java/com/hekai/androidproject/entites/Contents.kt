@@ -4,6 +4,6 @@ import com.squareup.moshi.Json
 import java.io.Serializable
 
 data class Contents(
-    @Json(name = "cid")var cid:Int,
-    @Json(name = "content")var Content:String
+    @Json(name = "cid")var cid:Int?,
+    @Json(name = "content")val Content:String
 ):Serializable

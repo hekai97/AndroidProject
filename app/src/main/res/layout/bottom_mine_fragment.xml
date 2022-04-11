@@ -77,6 +77,7 @@
         android:layout_marginStart="@dimen/text_to_border"
         android:layout_marginEnd="@dimen/text_to_border"
         android:layout_marginBottom="80dp"
+        android:backgroundTint="@color/blue2"
         android:text="退出登录"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -14,6 +14,7 @@ import com.hekai.androidproject.util.myhash
 import com.hekai.androidproject.viewmodels.activityviewmodels.LoginActivityViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+import kotlin.math.log
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding:ActivityLoginBinding
@@ -49,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
                 runBlocking {
                     viewModel.vaildUser(username,password)
                     if(username.equals(viewModel.user.value?.UserName)&& password.equals(viewModel.user.value?.Password)){
+                        Log.d("Hekai", "viewModel user=${viewModel.user.value?.UserName}and password=${viewModel.user.value?.Password}")
                         Log.d("Hekai", "登录成功")
                         intent.putExtra("user",viewModel.user.value)
                         binding.loginButtonInLogin.setImageResource(R.drawable.ic_baseline_check_24)

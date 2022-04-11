@@ -6,12 +6,10 @@ import com.hekai.androidproject.entites.Users
 import com.hekai.androidproject.util.myBaseURL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.MultipartBody
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 private val moshi= Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -39,8 +37,17 @@ interface NetWorkPosts {
     //Posts相关的方法
     @GET("Posts/getPostsList")
     suspend fun getPostsList():List<Posts>
+    @POST("Posts/insert")
+    suspend fun insertPost(@Body posts: Posts):Int
 
     //Content相关的方法
     @GET("Contents/getContentById/{uid}")
     suspend fun getContentById(@Path("uid")user:Int) : Contents
+    @POST("Contents/insert")
+    suspend fun insertIntoContents(@Body contents: Contents)
+
+    //上传图片相关的方法
+    @Multipart
+    @POST("imageUpload/upload")
+    suspend fun imageUpload(@Part file:MultipartBody.Part)
 }

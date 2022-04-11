@@ -66,7 +66,7 @@ class ContentActivity : AppCompatActivity() {
         var index=0;
         var i=0
         while(i<viewModel.data.value?.Content?.length ?: 0){
-            if(index>array.size){
+            if(index>=array.size){
                 break
             }
             if(i<array[index].startIndex){

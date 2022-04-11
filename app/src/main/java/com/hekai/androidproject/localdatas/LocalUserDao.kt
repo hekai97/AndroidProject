@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LocalUserDao {
-    @Query("select * from login_status where status = true")
+    @Query("select * from login_status where status = 1")
     fun getLoggedUser(): Flow<LUser>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -17,6 +17,6 @@ interface LocalUserDao {
     @Query("delete from login_status")
     suspend fun deleteAll()
 
-    @Query("update login_status set status=false where status=true")
+    @Query("update login_status set status=0 where status=1")
     suspend fun logOut()
 }
