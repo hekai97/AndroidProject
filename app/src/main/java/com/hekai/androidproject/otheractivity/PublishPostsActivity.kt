@@ -29,6 +29,7 @@ import com.hekai.androidproject.entites.Contents
 import com.hekai.androidproject.entites.Posts
 import com.hekai.androidproject.entites.Users
 import com.hekai.androidproject.localdatas.LUser
+import com.hekai.androidproject.util.showErrorAlert
 import com.hekai.androidproject.viewmodels.activityviewmodels.PublishPostsViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -57,17 +58,22 @@ class PublishPostsActivity : AppCompatActivity() {
         viewModel.currentUser.observe(this){
             Log.d(TAG, "onCreate: ${viewModel.currentUser.value}")
         }
-        setSupportActionBar(binding.toolbarInPublish)
         binding.toolbarInPublish.title="写文章"
+        setSupportActionBar(binding.toolbarInPublish)
+
         binding.toolbarInPublish.setNavigationOnClickListener {
             this.finish()
+        }
+        binding.fontButtonInPublish.apply {
+            this.setOnClickListener {
+                showErrorAlert(binding.root.context)
+            }
         }
         binding.photoButtonInPublish.apply {
             this.setOnClickListener {
                 checkExternalStoragePermissionAndOpenGallery()
             }
         }
-        //TODO 发布的时候要能生成图片和文本，现在使用edittext只能上传文本
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -79,6 +85,7 @@ class PublishPostsActivity : AppCompatActivity() {
         // Handle item selection
         return when (item.itemId) {
             R.id.publish_sketch -> {
+                showErrorAlert(binding.root.context)
                 Log.d(TAG, "onOptionsItemSelected: 点击了草稿")
                 true
             }
@@ -91,9 +98,6 @@ class PublishPostsActivity : AppCompatActivity() {
         }
     }
 
-//    fun requestPermission(){
-//
-//    }
 
     private fun checkExternalStoragePermissionAndOpenGallery(){
         when {

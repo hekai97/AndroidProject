@@ -1,9 +1,13 @@
 package com.hekai.androidproject.otheractivity
 
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
@@ -18,6 +22,7 @@ import com.hekai.androidproject.entites.Posts
 import com.hekai.androidproject.entites.Responses
 import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.util.myBaseURL
+import com.hekai.androidproject.util.showErrorAlert
 import com.hekai.androidproject.viewmodels.activityviewmodels.ContentActivityViewModel
 import okio.IOException
 import java.sql.Timestamp
@@ -35,6 +40,7 @@ class ContentActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         //设置左上角的返回箭头按键
+        setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener{
             this.finish()
         }
@@ -109,6 +115,37 @@ class ContentActivity : AppCompatActivity() {
 
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.share_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.action_share -> {
+                Log.d(TAG, "onOptionsItemSelected: share")
+                showShareSheet()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    //显示分享栏
+    private fun showShareSheet(){
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "分享文章:${viewModel.postData.value?.PublishTitle}")
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
+    //构造当前的页面
     private fun constructingContent(){
         val array=viewModel.setContent()
         if(array.size==0){

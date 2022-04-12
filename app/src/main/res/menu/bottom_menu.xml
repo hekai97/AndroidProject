@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/bottom_home"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_outline_home_24"
         android:title="@string/bottom_menu_home" />
     <item
         android:id="@+id/bottom_search"
@@ -13,10 +13,6 @@
         android:id="@+id/bottom_notification"
         android:icon="@drawable/ic_baseline_notifications_none_24"
         android:title="@string/bottom_menu_notification" />
-    <item
-        android:id="@+id/bottom_message"
-        android:icon="@drawable/ic_baseline_mail_outline_24"
-        android:title="@string/bottom_menu_message" />
     <item
         android:id="@+id/bottom_mine"
         android:icon="@drawable/ic_baseline_person_outline_24"
