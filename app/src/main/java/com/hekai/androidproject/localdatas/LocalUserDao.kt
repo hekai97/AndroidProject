@@ -19,4 +19,7 @@ interface LocalUserDao {
 
     @Query("update login_status set status=0 where status=1")
     suspend fun logOut()
+
+    @Query("update login_status set PublishNumber=PublishNumber+1 where status=1")
+    suspend fun updateUserPublishNumber()
 }

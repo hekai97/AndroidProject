@@ -18,6 +18,9 @@ class MainActivityViewModel(private val repository:LocalUserRepository):ViewMode
     fun logOut()=viewModelScope.launch {
         repository.logOut()
     }
+    fun updateUserPublishNumber()=viewModelScope.launch {
+        repository.updateUserPublishNumber()
+    }
 }
 class MainActivityViewModelFactory(private val repository: LocalUserRepository):ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

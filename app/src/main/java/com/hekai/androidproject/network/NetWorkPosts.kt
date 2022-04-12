@@ -2,6 +2,7 @@ package com.hekai.androidproject.network
 
 import com.hekai.androidproject.entites.Contents
 import com.hekai.androidproject.entites.Posts
+import com.hekai.androidproject.entites.Responses
 import com.hekai.androidproject.entites.Users
 import com.hekai.androidproject.util.myBaseURL
 import com.squareup.moshi.Moshi
@@ -33,6 +34,10 @@ interface NetWorkPosts {
     suspend fun insertUser(@Body users: Users):Boolean
     @POST("Users/validUserByUserName/{username}")
     suspend fun isUserExist(@Path("username")username: String):Boolean
+    @POST("Users/updatePublishNumber/{id}")
+    suspend fun updatePublishNumber(@Path("id")id:Int)
+    @POST("Users/getUserById/{id}")
+    suspend fun getUserById(@Path("id")id:Int):Users
 
     //Posts相关的方法
     @GET("Posts/getPostsList")
@@ -50,4 +55,10 @@ interface NetWorkPosts {
     @Multipart
     @POST("imageUpload/upload")
     suspend fun imageUpload(@Part file:MultipartBody.Part)
+
+    //Response相关方法
+    @POST("Responses/getAllResponseByResponsePost/{postId}")
+    suspend fun getAllResponseByPostID(@Path("postId")postId:Int):List<Responses>
+    @POST("Responses/insertResponse")
+    suspend fun insertResponse(@Body response:Responses)
 }

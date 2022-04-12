@@ -1,6 +1,7 @@
 package com.hekai.androidproject.otheractivity
 
 import android.Manifest
+import android.app.Activity
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -113,7 +114,8 @@ class PublishPostsActivity : AppCompatActivity() {
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                Snackbar.make(binding.root,"同意文件读取权限",Snackbar.LENGTH_LONG).show()
+                getResult.launch("image/*")
+//                Snackbar.make(binding.root,"同意文件读取权限",Snackbar.LENGTH_LONG).show()
             } else {
                 Snackbar.make(binding.root,"请打开文件读取权限",Snackbar.LENGTH_LONG).show()
             }
@@ -340,7 +342,7 @@ class PublishPostsActivity : AppCompatActivity() {
         }
         return false
     }
-    fun publish(){
+    private fun publish(){
         if(binding.titleEdittextInPublish.text.toString()==""){
             Snackbar.make(binding.root,"请输入标题",Snackbar.LENGTH_LONG).show()
             return
@@ -351,6 +353,8 @@ class PublishPostsActivity : AppCompatActivity() {
         }
         putAllImageToRemote()
         putPostToRemote()
+        setResult(Activity.RESULT_OK,intent)
+        viewModel.updateUserPublishNumber(viewModel.currentUser.value!!.uid)
         finish()
     }
 }

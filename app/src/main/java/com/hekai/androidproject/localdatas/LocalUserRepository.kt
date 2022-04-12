@@ -18,4 +18,7 @@ class LocalUserRepository(private val localUserDao: LocalUserDao) {
     suspend fun logOut(){
         localUserDao.logOut()
     }
+    suspend fun updateUserPublishNumber(){
+        localUserDao.updateUserPublishNumber()
+    }
 }

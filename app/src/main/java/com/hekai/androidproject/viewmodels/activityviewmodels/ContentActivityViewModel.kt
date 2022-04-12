@@ -5,13 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hekai.androidproject.entites.Contents
-import com.hekai.androidproject.entites.Posts
+import com.hekai.androidproject.entites.*
 import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.network.NWPost
 import com.hekai.androidproject.util.RangeAndValue
 import com.hekai.androidproject.util.myBaseURL
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class ContentActivityViewModel: ViewModel() {
     private val _currentUser=MutableLiveData<LUser>()
@@ -20,6 +19,9 @@ class ContentActivityViewModel: ViewModel() {
     val data:LiveData<Contents> get() = _data
     private val _post=MutableLiveData<Posts>()
     val postData:LiveData<Posts>get() = _post
+
+    private val _allResponse=MutableLiveData<List<ReconstructionResponse>>()
+    val allResponse:LiveData<List<ReconstructionResponse>> get() = _allResponse
 
 //    private val pattern:String="^http(s?):\\/\\/[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\:[0-9]{1,5}\\/image\\/.*\\.[a-z|A-Z]{1,5}\\s"
     fun setPost(posts: Posts){
@@ -59,6 +61,67 @@ class ContentActivityViewModel: ViewModel() {
         }
         Log.d("Hekai", "setContent: ${result}")
         return result
+    }
 
+    fun constructionReponses(postId: Int){
+        runBlocking {
+            val listReconstructionResponse:MutableList<ReconstructionResponse> = mutableListOf()
+            val responses: List<Responses> =getAllResponseByPostId(postId).await()
+            for(i in responses){
+                Log.d("Hekai", "ConstructionReponses: ${i.responseUser}")
+                val tempUser:Users = getUserById(i.responseUser).await()!!
+                val tempReconstructionResponse =
+                    ReconstructionResponse(myBaseURL()+tempUser.UserAvatar,tempUser.NickName,i)
+                listReconstructionResponse.add(tempReconstructionResponse)
+            }
+            if(listReconstructionResponse.size>0) {
+                _allResponse.value = listReconstructionResponse
+            }
+        }
+    }
+    ////////////////
+    ////////////////
+    private fun getUserById(id:Int): Deferred<Users?> {
+        val res=viewModelScope.async(Dispatchers.IO) {
+            _getUserById(id)
+        }
+        return res
+    }
+    suspend fun _getUserById(id:Int):Users?{
+        var res:Users?=null
+        try {
+            val users=NWPost.nwPosts.getUserById(id)
+            res=users
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+        return res
+    }
+    //////////////////
+    /////////////////
+    private fun getAllResponseByPostId(postId: Int): Deferred<List<Responses>> {
+        val res=viewModelScope.async(Dispatchers.IO) {
+            _getAllResponseByPostId(postId)
+        }
+        return res
+    }
+    private suspend fun _getAllResponseByPostId(postId:Int):List<Responses>{
+        var listResponses:List<Responses> = listOf()
+        try {
+            listResponses=NWPost.nwPosts.getAllResponseByPostID(postId)
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+        return listResponses
+    }
+    /////////////////
+    fun insertResponse(response:Responses){
+        viewModelScope.launch {
+            try {
+                NWPost.nwPosts.insertResponse(response)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+        }
     }
 }

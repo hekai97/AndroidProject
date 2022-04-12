@@ -134,7 +134,7 @@
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/response_message_edittext"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/text_to_border"
@@ -143,7 +143,7 @@
                     android:inputType="text"
                     android:minHeight="48dp"
                     app:layout_constraintBottom_toBottomOf="@+id/current_user_image"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/send_image_button_in_content"
                     app:layout_constraintStart_toEndOf="@+id/current_user_image"
                     app:layout_constraintTop_toTopOf="@+id/current_user_image" />
 
@@ -165,20 +165,44 @@
                     android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+                    app:layout_constraintTop_toBottomOf="@+id/response_message_edittext" />
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="200dp"
-                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text_to_border"
+                    android:layout_marginTop="@dimen/text_to_border"
+                    android:layout_marginEnd="@dimen/text_to_border"
+                    android:minHeight="100dp"
+                    android:maxHeight="300dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider3">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/reply_area_recycle_view"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </LinearLayout>
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/reply_recycle_view_item" />
+
+                    <TextView
+                        android:id="@+id/no_body_relpy_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="还没有人发评论，快来发第一个评论吧！" />
+                </FrameLayout>
+
+                <ImageButton
+                    android:id="@+id/send_image_button_in_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_to_border"
+                    android:background="@null"
+                    app:layout_constraintBottom_toBottomOf="@+id/response_message_edittext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/response_message_edittext"
+                    app:srcCompat="@drawable/ic_round_send_24" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

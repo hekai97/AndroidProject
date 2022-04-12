@@ -5,12 +5,16 @@
       <map>
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.1655" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1655" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.1735" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.1735" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.1735" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_baseline_notifications_none_24.xml" value="0.1735" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.1735" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1655" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_outline_add_a_photo_24.xml" value="0.1655" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/ic_round_send_24.xml" value="0.1735" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/drawable/image_view_on_user_photo.xml" value="0.1655" />
-        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_content.xml" value="0.4" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_content.xml" value="0.2" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_drawer_setting.xml" value="0.20478837109876016" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -25,6 +29,7 @@
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/draw_head_view.xml" value="0.20478837109876016" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/fragment_blank.xml" value="0.20478837109876016" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/recycler_view_item.xml" value="0.4662349676225717" />
+        <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/layout/reply_recycle_view_item.xml" value="0.4" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/menu/bottom_menu.xml" value="0.24947916666666667" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/menu/drawer_menu.xml" value="0.20478837109876016" />
         <entry key="..\:/Codes/AndroidStudio/AndroidProject/app/src/main/res/menu/publish_menu.xml" value="0.2047008547008547" />

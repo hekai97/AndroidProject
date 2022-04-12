@@ -57,4 +57,13 @@ class PublishPostsViewModel:ViewModel() {
     fun setCurrentUser(lUser: LUser){
         _currentUser.value=lUser
     }
+    fun updateUserPublishNumber(userId:Int){
+        viewModelScope.launch {
+            try {
+                NWPost.nwPosts.updatePublishNumber(userId)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+        }
+    }
 }

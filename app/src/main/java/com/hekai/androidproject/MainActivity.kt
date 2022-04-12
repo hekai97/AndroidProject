@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             }else {
                 val currentUserIntent=Intent(binding.root.context,PublishPostsActivity::class.java)
                 currentUserIntent.putExtra("currentUser",viewModel.currentUser.value)
-                startActivity(currentUserIntent)
+                getPublishResult.launch(currentUserIntent)
             }
         }
     }
@@ -70,6 +70,15 @@ class MainActivity : AppCompatActivity() {
         }
         else{
             Log.d(TAG, "取消登录")
+        }
+    }
+
+    val getPublishResult=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        if(it.resultCode== RESULT_OK){
+            Log.d(TAG, "发布成功 ")
+            viewModel.updateUserPublishNumber()
+        }else{
+            Log.d(TAG, " 取消发布")
         }
     }
 
