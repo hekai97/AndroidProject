@@ -1,6 +1,6 @@
 package com.hekai.androidproject.util
 
 fun myBaseURL():String{
-    return "http://192.168.137.1:8082/"
+    return "http://10.20.92.222:8082/"
 }
 //[图片]image/picture/test.jpg

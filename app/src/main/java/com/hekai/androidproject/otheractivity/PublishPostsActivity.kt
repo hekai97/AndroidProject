@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.setMargins
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.google.android.material.snackbar.Snackbar
 import com.hekai.androidproject.R
 import com.hekai.androidproject.databinding.ActivityPublishPostsBinding
@@ -32,6 +33,7 @@ import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.util.showErrorAlert
 import com.hekai.androidproject.viewmodels.activityviewmodels.PublishPostsViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -355,8 +357,10 @@ class PublishPostsActivity : AppCompatActivity() {
             Snackbar.make(binding.root,"请输入正文",Snackbar.LENGTH_LONG).show()
             return
         }
-        putAllImageToRemote()
-        putPostToRemote()
+        runBlocking {
+            putAllImageToRemote()
+            putPostToRemote()
+        }
         setResult(Activity.RESULT_OK,intent)
         viewModel.updateUserPublishNumber(viewModel.currentUser.value!!.uid)
         finish()

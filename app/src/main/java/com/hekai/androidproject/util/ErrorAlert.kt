@@ -12,7 +12,4 @@ fun showErrorAlert(context: Context){
     //测试test分支
     //test2dddd
 
-
-    //再次测试test分支
-    //master提交
 }

@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.hekai.androidproject.R
@@ -24,6 +25,7 @@ import com.hekai.androidproject.localdatas.LUser
 import com.hekai.androidproject.util.myBaseURL
 import com.hekai.androidproject.util.showErrorAlert
 import com.hekai.androidproject.viewmodels.activityviewmodels.ContentActivityViewModel
+import kotlinx.coroutines.launch
 import okio.IOException
 import java.sql.Timestamp
 
@@ -107,8 +109,8 @@ class ContentActivity : AppCompatActivity() {
                     viewModel.insertResponse(response)
                     Snackbar.make(binding.root,"回复成功",Snackbar.LENGTH_LONG).show()
                     binding.responseMessageEdittext.text=null
-                    viewModel.constructionReponses(viewModel.postData.value!!.pid!!)
                     mediaPlayer.start()
+                    viewModel.constructionReponses(viewModel.postData.value!!.pid!!)
                 }
             }
         }
